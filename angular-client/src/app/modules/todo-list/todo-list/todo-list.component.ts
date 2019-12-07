@@ -9,6 +9,7 @@ import { TodoItem } from '../todo-list.model';
 })
 export class TodoListComponent implements OnInit {
   items: TodoItem[];
+  item: TodoItem = new TodoItem();
 
   constructor(
     private todoListService: TodoListService) { }
@@ -16,5 +17,13 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.todoListService.get()
       .subscribe(items => this.items = items);
+  }
+
+  onSave(item: TodoItem): void {
+    this.todoListService.create(item)
+      .subscribe(() => {
+        this.todoListService.get()
+          .subscribe(items => this.items = items);
+      })
   }
 }

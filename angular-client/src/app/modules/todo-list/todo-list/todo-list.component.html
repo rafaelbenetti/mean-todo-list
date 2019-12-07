@@ -1,5 +1,5 @@
 <div class="todo-item-container">
-  <input class="input" type="text" name="title" placeholder="Title">
-  <button class="button">Save</button>
+  <input [(ngModel)]="item.title" class="input" type="text" name="title" placeholder="Title">
+  <button (click)="onSave(item)" class="button">Save</button>
 </div>
 <app-todo-item *ngFor="let item of items" [item]="item"></app-todo-item>

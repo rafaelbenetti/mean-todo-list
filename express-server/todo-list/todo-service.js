@@ -27,6 +27,12 @@
           sort: 'order'
         })
         .toArray()
+        .map(todo => {
+          return {
+            id: todo._id,
+            title: todo.title
+          }
+        })
         .then((result) => resolve(result),
           reject);
     });

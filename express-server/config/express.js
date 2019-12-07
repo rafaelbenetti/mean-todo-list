@@ -6,7 +6,7 @@
 
   const todoRoutes = require('../todo-list/todo-route');
 
-  const mongoConnection = require('../infra/mongo/connection');
+  const mongoConnection = require('./connection');
   mongoConnection.connect();
 
   let app = express();

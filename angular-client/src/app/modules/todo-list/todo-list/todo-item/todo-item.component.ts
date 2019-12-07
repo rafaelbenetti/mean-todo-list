@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TodoItem } from '../../todo-list.model';
+import { TodoListService } from '../../todo-list.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,12 +10,13 @@ import { TodoItem } from '../../todo-list.model';
 export class TodoItemComponent implements OnInit {
   @Input() item: TodoItem;
 
-  constructor() { }
+  constructor(private todoListService: TodoListService) { }
 
   ngOnInit() {
   }
 
   onDelete() {
-
+    this.todoListService.delete(this.item.id)
+      .subscribe();
   }
 }

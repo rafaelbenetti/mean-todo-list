@@ -14,15 +14,11 @@ export class TodoListService {
   constructor(private http: HttpClient) { }
 
   get(): Observable<TodoItem[]> {
-    return of([{
-      title: 'Clean the house'
-    },
-    {
-      title: 'Clean the house'
-    },
-    {
-      title: 'Clean the house'
-    }]);
+    return this.http.get<TodoItem[]>(this.url);
+  }
+
+  create(item: TodoItem): Observable<TodoItem> {
+    return this.http.post<TodoItem>(this.url, item);
   }
 
   update(item: TodoItem): Observable<TodoItem> {
