@@ -28,7 +28,7 @@
 
   app.use(bodyParser.json());
 
-  app.use('/todo', todoRoutes);
+  app.use('/todos', todoRoutes);
 
   module.exports = app;
 })();
