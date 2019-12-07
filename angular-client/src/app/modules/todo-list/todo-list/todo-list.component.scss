@@ -1,0 +1,11 @@
+@import 'variables';
+
+.todo-item-container {
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+app-todo-item:last-child {
+  border-bottom: 1px solid $divisor-color;
+  display: inline-block;
+  width: 100%;
+}

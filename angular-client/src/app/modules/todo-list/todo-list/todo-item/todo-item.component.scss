@@ -1,0 +1,33 @@
+@import "variables";
+
+.item-container {
+  text-align: center;
+  border-top: 1px solid $divisor-color;
+  padding: 10px 0 10px 0;
+  .title {
+    margin-left: 10px;
+  }
+  .title-container,
+  .button-container {
+    display: inline-block;
+  }
+  .title-container {
+    width: 80%;
+    text-align: left;
+  }
+  .button-container {
+    width: 20%;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .item-container {
+    .title-container {
+      width: 65%;
+    }
+    .button-container {
+      width: 35%;
+    }
+  }
+}

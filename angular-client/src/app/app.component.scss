@@ -1,0 +1,13 @@
+@media screen and (min-width: 800px) {
+  .main-container {
+    display: inline-block;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main-container {
+    display: inline-block;
+    width: 60%;
+  }
+}
