@@ -1,9 +1,9 @@
 import { TodoItem } from '../todo.model';
 
 export default class TodoItemState {
-  items: Array<TodoItem>;
+  todos: Array<TodoItem>;
 }
 
 export const initializeState = () => {
-  return { items: Array<TodoItem>() };
+  return { todos: Array<TodoItem>() };
 };

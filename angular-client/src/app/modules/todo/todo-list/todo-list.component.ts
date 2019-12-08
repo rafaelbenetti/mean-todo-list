@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+
 import * as TodoActions from '../store/todo.actions';
 import { TodoItem } from '../todo.model';
-import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import TodoItemState from '../store/todo.state';
 
@@ -15,7 +16,7 @@ export class TodoListComponent implements OnInit {
   item: TodoItem = new TodoItem();
 
   constructor(private store: Store<TodoItemState>) {
-    this.items$ = store.pipe(select('items'));
+    this.items$ = store.pipe(select('todos'));
   }
 
   ngOnInit() {
@@ -23,7 +24,8 @@ export class TodoListComponent implements OnInit {
   }
 
   onSave(item: TodoItem): void {
-    this.store.dispatch(TodoActions.CreateTodoItemAction(item));
+    this.store.dispatch(TodoActions.BeginCreateTodoItemAction({ payload: item }));
+    this.item = new TodoItem();
   }
 
   onDeleteItem(item: TodoItem) {
