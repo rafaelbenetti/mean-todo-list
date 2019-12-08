@@ -25,10 +25,6 @@ describe('TodoService (isolated)', () => {
     service = TestBed.get(TodoService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
   it('should call todos resource with GET method', () => {
     service.get().subscribe();
 

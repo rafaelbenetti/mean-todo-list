@@ -29,10 +29,6 @@ describe('TodoItemComponent (shallow)', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should show all TODO Item properties', () => {
     const el = fixture.nativeElement;
 

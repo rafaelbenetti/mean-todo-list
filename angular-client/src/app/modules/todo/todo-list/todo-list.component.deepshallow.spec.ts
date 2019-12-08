@@ -48,10 +48,6 @@ describe('TodoListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should show all items', () => {
     const items = el.queryAll(By.directive(TodoItemComponent));
     expect(items.length).toBe(items.length);
