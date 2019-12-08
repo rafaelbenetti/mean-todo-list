@@ -1,12 +1,13 @@
 ## MEAN TODO List with docker
-TODO list using latest version of MEAN stack using docker containers.
+TODO List using latest version of MEAN stack and docker containers.
 
 ## Set up
 
-Make sure you have docker and docker-compose installed.
+Make sure you have `docker` and `docker-compose` installed.
 
-Docker should be version 19 or higher.
-Docker-compose should be version 1.24 or higher.
+`docker` should be version 19 or higher.
+
+`docker-compose` should be version 1.24 or higher.
 
 ### Clone the repo
 ```bash
