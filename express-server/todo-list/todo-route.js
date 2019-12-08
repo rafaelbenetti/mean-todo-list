@@ -27,7 +27,7 @@
 
   router.route('/:id')
     .delete((req, res) => {
-      todoController
+      todoController 
         .delete(req.params.id)
         .then(() => res.sendStatus(204));
     });

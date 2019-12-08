@@ -5,21 +5,6 @@
   const COLLECTION = 'todo';
   let todoService = {};
 
-  todoService.find = function (search) {
-    return new Promise((resolve, reject) => {
-      mongo.DB.collection(COLLECTION)
-        .find({
-          description: {
-            $regex: search,
-            $options: 'i'
-          }
-        })
-        .sort({order: 1})
-        .toArray()
-        .then((result) => resolve(result), reject);
-    });
-  };
-
   todoService.findAll = function () {
     return new Promise((resolve, reject) => {
       mongo.DB.collection(COLLECTION)
@@ -27,17 +12,10 @@
           sort: 'order'
         })
         .toArray()
-        .map(todo => {
-          return {
-            id: todo._id,
-            title: todo.title
-          }
-        })
         .then((result) => resolve(result),
           reject);
     });
   };
-
 
   todoService.create = function (todo) {
     return new Promise((resolve, reject) => {
@@ -54,8 +32,7 @@
           _id: new mongo.ObjectID(todo._id)
         }, {
           $set: {
-            description: todo.description,
-            order: todo.order,
+            title: todo.title,
             completed: todo.completed
           }
         })
@@ -67,12 +44,12 @@
   todoService.delete = function (id) {
     return new Promise((resolve, reject) => {
       mongo.DB.collection(COLLECTION)
-        .deleteOne({
-          _id: new mongo.ObjectID(id)
+        .deleteOne({ 
+          _id: new mongo.ObjectID(id) 
         })
         .then(() => resolve(), reject);
     })
   };
-
+ 
   module.exports = todoService;
 })();

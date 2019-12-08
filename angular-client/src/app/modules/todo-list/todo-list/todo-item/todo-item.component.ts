@@ -15,8 +15,13 @@ export class TodoItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUpdate() {
+    this.todoListService.update(this.item)
+      .subscribe();
+  }
+
   onDelete() {
-    this.todoListService.delete(this.item.id)
+    this.todoListService.delete(this.item._id)
       .subscribe();
   }
 }
