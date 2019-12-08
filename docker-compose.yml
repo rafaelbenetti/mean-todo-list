@@ -8,13 +8,15 @@ services:
       - "49153:49153"
     volumes:
       - ./angular-client:/app
+      - /app/node_modules
 
   express:
     build: express-server
     ports:
       - "3000:3000"
     volumes:
-      - ./express-server:/usr/src/app
+      - ./express-server:/usr/src/app      
+      - /usr/src/app/node_modules
     links:
       - database
 
