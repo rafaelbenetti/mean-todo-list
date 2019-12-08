@@ -20,6 +20,17 @@ export const SuccessCreateTodoItemAction = createAction(
 );
 
 
+export const BeginUpdateTodoItemAction = createAction(
+  '[TodoItem] - Begin Update TodoItem',
+  props<{ payload: TodoItem }>()
+);
+
+export const SuccessUpdateTodoItemAction = createAction(
+  '[TodoItem] - Success Update TodoItem',
+  props<{ payload: TodoItem }>()
+);
+
+
 export const BeginDeleteTodoItemAction = createAction(
   '[TodoItem] - Begin Delete TodoItem',
   props<{ payload: string }>()

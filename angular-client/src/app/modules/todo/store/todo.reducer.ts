@@ -13,6 +13,9 @@ const reducer = createReducer(
   on(TodoActions.SuccessCreateTodoItemAction, (state: TodoItemState, { payload }) => {
     return { ...state, todos: [...state.todos, payload], TodoItemError: null };
   }),
+  on(TodoActions.SuccessUpdateTodoItemAction, (state: TodoItemState, { payload }) => {
+    return { ...state, todos: [...state.todos.filter(t => t._id !== payload._id), payload], TodoItemError: null };
+  }),
   on(TodoActions.SuccessDeleteTodoItemAction, (state: TodoItemState, { payload }) => {
     return { ...state, todos: state.todos.filter(t => t._id !== payload), TodoItemError: null };
   }),

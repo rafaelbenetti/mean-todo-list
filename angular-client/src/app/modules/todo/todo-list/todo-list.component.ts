@@ -23,8 +23,13 @@ export class TodoListComponent implements OnInit {
     this.store.dispatch(TodoActions.BeginGetTodoItemAction());
   }
 
-  onSave(item: TodoItem): void {
+  onSaveItem(item: TodoItem): void {
     this.store.dispatch(TodoActions.BeginCreateTodoItemAction({ payload: item }));
+    this.item = new TodoItem();
+  }
+
+  onUpdateItem(item: TodoItem): void {
+    this.store.dispatch(TodoActions.BeginUpdateTodoItemAction({ payload: item }));
     this.item = new TodoItem();
   }
 

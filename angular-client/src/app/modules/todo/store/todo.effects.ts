@@ -49,6 +49,24 @@ export class TodoEffects {
     )
   );
 
+  UpdateTodo$: Observable<Action> = createEffect(() =>
+    this.action$.pipe(
+      ofType(TodoActions.BeginUpdateTodoItemAction),
+      mergeMap((action: any) =>
+        this.todoService
+          .update(action.payload)
+          .pipe(
+            map((data: TodoItem) => {
+              return TodoActions.SuccessUpdateTodoItemAction({ payload: data });
+            }),
+            catchError((error: Error) => {
+              return of(TodoActions.ErrorTodoItemAction(error));
+            })
+          )
+      )
+    )
+  );
+
   DeleteTodo$: Observable<Action> = createEffect(() =>
     this.action$.pipe(
       ofType(TodoActions.BeginDeleteTodoItemAction),
