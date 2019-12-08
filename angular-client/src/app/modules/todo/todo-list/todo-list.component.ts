@@ -29,6 +29,6 @@ export class TodoListComponent implements OnInit {
   }
 
   onDeleteItem(item: TodoItem) {
-    // this.items = this.items.filter(i => i._id !== item._id);
+    this.store.dispatch(TodoActions.BeginDeleteTodoItemAction({ payload: item._id }));
   }
 }

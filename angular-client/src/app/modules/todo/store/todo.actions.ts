@@ -1,8 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { TodoItem } from '../todo.model';
 
-export const GetTodoItemAction = createAction('[TodoItem] - Get TodoItem');
-
 export const BeginGetTodoItemAction = createAction('[TodoItem] - Begin Get TodoItem');
 
 export const SuccessGetTodoItemAction = createAction(
@@ -10,11 +8,6 @@ export const SuccessGetTodoItemAction = createAction(
   props<{ payload: TodoItem[] }>()
 );
 
-
-export const CreateTodoItemAction = createAction(
-  '[TodoItem] - Create TodoItem',
-  props<TodoItem>()
-);
 
 export const BeginCreateTodoItemAction = createAction(
   '[TodoItem] - Begin Create TodoItem',
@@ -24,6 +17,17 @@ export const BeginCreateTodoItemAction = createAction(
 export const SuccessCreateTodoItemAction = createAction(
   '[TodoItem] - Success Create TodoItem',
   props<{ payload: TodoItem }>()
+);
+
+
+export const BeginDeleteTodoItemAction = createAction(
+  '[TodoItem] - Begin Delete TodoItem',
+  props<{ payload: string }>()
+);
+
+export const SuccessDeleteTodoItemAction = createAction(
+  '[TodoItem] - Success Delete TodoItem',
+  props<{ payload: string }>()
 );
 
 

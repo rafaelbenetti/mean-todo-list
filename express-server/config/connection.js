@@ -9,14 +9,13 @@
   let mongodb = function() {
     if (mongo.DB) return mongo.DB;
 
-    mongoClient.connect(url, function(err, client) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(`Connected on database with success at ${url}`);
+    mongoClient.connect(url, { useUnifiedTopology: true })
+      .then(client => {        
         mongo.DB = client.db(mongoConfig.database);
-      }
-    });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   module.exports.connect = mongodb;

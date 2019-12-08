@@ -20,7 +20,7 @@
   todoService.create = function (todo) {
     return new Promise((resolve, reject) => {
       mongo.DB.collection(COLLECTION)
-        .insert(todo)
+        .insertOne(todo)
         .then(() => resolve(todo), reject);
     });
   };

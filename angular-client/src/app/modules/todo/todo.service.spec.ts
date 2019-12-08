@@ -10,6 +10,12 @@ describe('TodoService (isolated)', () => {
 
   const url = `${environment.url}/todos`;
 
+  const item = {
+    _id: '5ded36c8b56aa9001f650701',
+    title: 'I have to clean the house',
+    completed: false
+  };
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -33,13 +39,17 @@ describe('TodoService (isolated)', () => {
     httpTestingController.verify();
   });
 
-  it('should call todos resource with PUT method', () => {
-    const item = {
-      _id: 'aaaa',
-      title: 'I have to clean the house',
-      completed: false
-    };
+  it('should call todos resource with POST method', () => {
+    service.create(item).subscribe();
 
+    const request = httpTestingController.expectOne(url);
+    request.flush([]);
+
+    expect(request.request.method).toBe('POST');
+    httpTestingController.verify();
+  });
+
+  it('should call todos resource with PUT method', () => {
     service.update(item).subscribe();
 
     const request = httpTestingController.expectOne(url);
@@ -50,10 +60,9 @@ describe('TodoService (isolated)', () => {
   });
 
   it('should call todos resource with DELETE method', () => {
-    const itemId = '55';
-    service.delete(itemId).subscribe();
+    service.delete(item._id).subscribe();
 
-    const request = httpTestingController.expectOne(`${url}/${itemId}`);
+    const request = httpTestingController.expectOne(`${url}/${item._id}`);
     request.flush([]);
 
     expect(request.request.method).toBe('DELETE');
