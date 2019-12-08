@@ -26,6 +26,10 @@ body {
 .input {
   border-radius: 3px;
   border: 1px solid $border-color;
+  color: $font-color;
   padding: 5px;
   min-height: 22px;
+  &::placeholder {
+    color: $font-color;
+  }
 }

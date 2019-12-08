@@ -24,6 +24,11 @@ export class TodoListComponent implements OnInit {
       .subscribe(() => {
         this.todoListService.get()
           .subscribe(items => this.items = items);
+        this.item = new TodoItem();
       })
+  }
+
+  onDeleteItem(item: TodoItem) {
+    this.items = this.items.filter(i => i._id !== item._id);
   }
 }
