@@ -1,8 +1,11 @@
 @import 'variables';
 
 .todo-item-container {
-  text-align: center;
+  text-align: left;
   margin: 50px 0 50px 0;
+  .input {
+    width: 50%;
+  }
 }
 app-todo-item:last-child {
   border-bottom: 1px solid $divisor-color;

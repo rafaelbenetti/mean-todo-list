@@ -35,7 +35,9 @@ describe('TodoListService (isolated)', () => {
 
   it('should call todos resource with PUT method', () => {
     const item = {
-      title: 'I have to clean the house'
+      _id: 'aaaa',
+      title: 'I have to clean the house',
+      completed: false
     };
 
     service.update(item).subscribe();
@@ -48,7 +50,7 @@ describe('TodoListService (isolated)', () => {
   });
 
   it('should call todos resource with DELETE method', () => {
-    const itemId = 55;
+    const itemId = '55';
     service.delete(itemId).subscribe();
 
     const request = httpTestingController.expectOne(`${url}/${itemId}`);

@@ -2,26 +2,25 @@
   'use strict';
 
   const request = require('supertest');
-  const app = require('../server/config/express');
-  const mongo = require('mongodb');
+  const app = require('../config/express');
   const todos = require('./data/todos.js');
-  const COLLECTION = '/todo';
+  const COLLECTION = '/todos';
 
   describe('Creating new TODO', function() {
     it('Returns 201 status', function(done) {
       request(app)
         .post(COLLECTION)
-        .send('description=CreatedByTests&completed=false&order=17')
+        .send('title=CreatedByTests&completed=false')
         .expect(201, done);
     });
 
     it('Returns complete todo', function(done) {
       let todo = todos[0];
-      var regex = new RegExp(`'description':'${todo.description}'`);
+      var regex = new RegExp(`"title":"${todo.title}"`);
       request(app)
         .post(COLLECTION)
         .send(
-          `description=${todo.description}&completed=${todo.completed}&order=${todo.order}`
+          `title=${todo.title}&completed=${todo.completed}`
         )
         .expect(regex, done);
     });
@@ -38,9 +37,9 @@
       });
     });
 
-    it('Change description', function(done) {
+    it('Change title', function(done) {
       findOne().then(todo => {
-        todo.description = `${todo.description} UPDATED`;
+        todo.title = `${todo.title} UPDATED`;
         request(app)
           .put(COLLECTION)
           .send(todo)

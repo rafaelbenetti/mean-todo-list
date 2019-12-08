@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { TodoItem } from './todo-list.model';
 import { environment } from 'src/environments/environment';
@@ -25,7 +25,7 @@ export class TodoListService {
     return this.http.put<TodoItem>(this.url, item);
   }
 
-  delete(id: number): Observable<{}> {
+  delete(id: string): Observable<{}> {
     return this.http.delete(`${this.url}/${id}`);
   }
 }

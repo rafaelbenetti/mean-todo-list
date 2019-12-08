@@ -1,22 +1,20 @@
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    const todos = [{
-            "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis",
-            "completed": false,
-            "order": 0
-        },
-        {
-            "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis",
-            "completed": true,
-            "order": 1
-        },
-        {
-            "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis",
-            "completed": false,
-            "order": 2
-        }
-    ];
+  const todos = [
+    {
+      title: 'Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis',
+      completed: false
+    },
+    {
+      title: 'Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis',
+      completed: true
+    },
+    {
+      title: 'Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis',
+      completed: false
+    }
+  ];
 
-    module.exports = todos;
+  module.exports = todos;
 })();

@@ -4,11 +4,16 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=dev nodemon -L index.js",
-    "test": "NODE_ENV=test nodemon -L index.js"
+    "test":  "NODE_ENV=test mocha tests/ --watch"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.14"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "supertest": "^4.0.2",
+    "tape": "^4.11.0"
   }
 }

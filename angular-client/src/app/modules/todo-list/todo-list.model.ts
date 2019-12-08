@@ -1,5 +1,5 @@
 export class TodoItem {
-  _id: number;
+  _id: string;
   title: string;
   completed: boolean;
 }
