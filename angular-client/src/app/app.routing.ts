@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   {
     path: 'todos',
-    loadChildren: () => import(`./modules/todo-list/todo-list.module`).then(m => m.TodoListModule)
+    loadChildren: () => import(`./modules/todo/todo.module`).then(m => m.TodoModule)
   },
   {
     path: '',

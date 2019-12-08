@@ -1,22 +1,22 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { TodoListService } from './todo-list.service';
+import { TodoService } from './todo.service';
 import { environment } from 'src/environments/environment';
 
-describe('TodoListService (isolated)', () => {
+describe('TodoService (isolated)', () => {
   let httpTestingController: HttpTestingController;
-  let service: TodoListService;
+  let service: TodoService;
 
   const url = `${environment.url}/todos`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [TodoListService]
+      providers: [TodoService]
     }).compileComponents();
     httpTestingController = TestBed.get(HttpTestingController);
-    service = TestBed.get(TodoListService);
+    service = TestBed.get(TodoService);
   });
 
   it('should be created', () => {

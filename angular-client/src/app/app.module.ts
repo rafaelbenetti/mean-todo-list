@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { RouterModule } from '@angular/router';
+import { TodoItemReducer } from './modules/todo/store/todo.reducer';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot({ todos: TodoItemReducer })
   ],
   providers: [],
   bootstrap: [
@@ -20,3 +23,6 @@ import { RouterModule } from '@angular/router';
   ]
 })
 export class AppModule { }
+
+
+
